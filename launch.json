@@ -1,0 +1,173 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Portfolio (Chrome)",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html",
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
+            "runtimeArgs": [
+                "--disable-web-security",
+                "--disable-features=VizDisplayCompositor"
+            ],
+            "port": 9222,
+            "presentation": {
+                "group": "browser",
+                "order": 1
+            }
+        },
+        {
+            "name": "Launch Portfolio (Edge)",
+            "type": "msedge",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html",
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "userDataDir": "${workspaceFolder}/.vscode/edge-debug-profile",
+            "runtimeArgs": [
+                "--disable-web-security",
+                "--disable-features=VizDisplayCompositor"
+            ],
+            "port": 9223,
+            "presentation": {
+                "group": "browser",
+                "order": 2
+            }
+        },
+        {
+            "name": "Launch Portfolio (Firefox)",
+            "type": "firefox",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html",
+            "webRoot": "${workspaceFolder}",
+            "keepProfileChanges": true,
+            "profile": "dev-edition-default",
+            "presentation": {
+                "group": "browser",
+                "order": 3
+            }
+        },
+        {
+            "name": "Launch with Live Server",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/server.js",
+            "console": "integratedTerminal",
+            "env": {
+                "NODE_ENV": "development",
+                "PORT": "3000"
+            },
+            "presentation": {
+                "group": "server",
+                "order": 1
+            }
+        },
+        {
+            "name": "Debug JavaScript",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "smartStep": true,
+            "skipFiles": [
+                "<node_internals>/**",
+                "node_modules/**",
+                "${workspaceFolder}/node_modules/**"
+            ],
+            "trace": true,
+            "presentation": {
+                "group": "debug",
+                "order": 1
+            }
+        },
+        {
+            "name": "Debug with Network Disabled",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html",
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": [
+                "--disable-web-security",
+                "--disable-features=VizDisplayCompositor",
+                "--offline"
+            ],
+            "presentation": {
+                "group": "debug",
+                "order": 2
+            }
+        },
+        {
+            "name": "Mobile Debug (Chrome DevTools)",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html",
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": [
+                "--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                "--window-size=375,667"
+            ],
+            "presentation": {
+                "group": "mobile",
+                "order": 1
+            }
+        },
+        {
+            "name": "Performance Profiling",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html",
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": [
+                "--enable-precise-memory-info",
+                "--enable-memory-info",
+                "--js-flags=--expose-gc",
+                "--max-old-space-size=4096"
+            ],
+            "presentation": {
+                "group": "performance",
+                "order": 1
+            }
+        },
+        {
+            "name": "Attach to Chrome",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "webRoot": "${workspaceFolder}",
+            "urlFilter": "*localhost*",
+            "presentation": {
+                "group": "attach",
+                "order": 1
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Launch All Browsers",
+            "configurations": [
+                "Launch Portfolio (Chrome)",
+                "Launch Portfolio (Edge)",
+                "Launch Portfolio (Firefox)"
+            ],
+            "presentation": {
+                "group": "compound",
+                "order": 1
+            }
+        },
+        {
+            "name": "Full Debug Setup",
+            "configurations": [
+                "Launch with Live Server",
+                "Debug JavaScript"
+            ],
+            "presentation": {
+                "group": "compound",
+                "order": 2
+            }
+        }
+    ]
+}
